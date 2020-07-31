@@ -1,3 +1,6 @@
 
 .vscode
 *.sqlite3
+*.code-workspace
+eph_calendar/__pycache__
+*
