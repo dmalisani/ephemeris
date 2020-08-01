@@ -1,7 +1,10 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from datetime import datetime
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
+from django.conf import settings
 
 from eph_calendar.models import RegisteredDate
 from eph_calendar.serializers import (
@@ -12,6 +15,7 @@ from eph_calendar.serializers import (
 class DatesViewSet(APIView):
     serializer_class = RegisteredDateSerializer
 
+    @method_decorator(cache_page(settings.DEFAULT_CACHE_TIMEOUT))
     def get(self, request, format=None):
         queryset = RegisteredDate.objects.all()
         dia = self.request.query_params.get('dia', None)
