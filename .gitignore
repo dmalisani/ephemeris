@@ -3,4 +3,4 @@
 *.sqlite3
 *.code-workspace
 eph_calendar/__pycache__
-*
+.env
