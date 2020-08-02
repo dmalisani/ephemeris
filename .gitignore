@@ -2,5 +2,8 @@
 .vscode
 *.sqlite3
 *.code-workspace
-eph_calendar/__pycache__
+*.pyc
+eph_calendar/__pycache__/
+ephemeris/__pycache__/
+__pycache__/
 .env

@@ -1,0 +1,34 @@
+version: '3.3'
+services:
+  memcached:
+    image: memcached
+    ports:
+      - 11211:11211
+    networks:
+        rest_sample_network:
+          ipv4_address: 172.20.0.100
+  api:
+    build: ./
+  
+    command: gunicorn ephemeris.wsgi:application --bind 0.0.0.0:8000
+    
+    ports:
+      - 8000:8000
+    networks:
+        rest_sample_network:
+          ipv4_address: 172.20.0.101
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:8000
+    depends_on:
+      - api
+    networks:
+      rest_sample_network:
+        ipv4_address: 172.20.0.102
+
+networks:
+  rest_sample_network:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
