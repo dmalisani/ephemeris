@@ -110,18 +110,18 @@ class TestVieset(TestCase):
 
     def test_integration_bad_request(self):
         cli = Client()
-        response = cli.get('/efemerides?dia=no_valid_date')
+        response = cli.get('/efemerides/?dia=no_valid_date')
         self.assertEqual(response.status_code, 400)
 
     def test_integration_empty_response(self):
         cli = Client()
-        response = cli.get('/efemerides?dia=2020-09-01')
+        response = cli.get('/efemerides/?dia=2020-09-01')
         self.assertEqual(response.status_code, 200)
         self.assertJSONEqual(response.content,  {'hoy': [], 'mes': {}})
 
     def test_integration_response_july_20(self):
         cli = Client()
-        response = cli.get('/efemerides?dia=2020-07-20')
+        response = cli.get('/efemerides/?dia=2020-07-20')
         expected_response = {
             'hoy': ['test_day20_1', 'test_day20_2'],
             'mes': {'15': ['test_day15_1', 'test_day15_2'],
@@ -132,7 +132,7 @@ class TestVieset(TestCase):
 
     def test_integration_response_august_20(self):
         cli = Client()
-        response = cli.get('/efemerides?dia=2020-08-1')
+        response = cli.get('/efemerides/?dia=2020-08-1')
         expected_response = {
             'hoy': [], 'mes': {'20': ['test_day20_1', 'test_day20_2']}
         }

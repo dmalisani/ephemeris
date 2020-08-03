@@ -3,6 +3,7 @@
 *.sqlite3
 *.code-workspace
 *.pyc
+*.cpython-38.pyc
 eph_calendar/__pycache__/
 ephemeris/__pycache__/
 __pycache__/

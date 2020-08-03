@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 
 def home(request):
-    return render(request, "<H1>Ephemeris</H2>")
+    return HttpResponse("<H1>Ephemeris</H2>")

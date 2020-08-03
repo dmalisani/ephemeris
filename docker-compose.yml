@@ -17,15 +17,16 @@ services:
     networks:
         rest_sample_network:
           ipv4_address: 172.20.0.101
-  nginx:
-    build: ./nginx
-    ports:
-      - 80:8000
-    depends_on:
-      - api
-    networks:
-      rest_sample_network:
-        ipv4_address: 172.20.0.102
+  # nginx:
+  #   build: ./nginx
+  #   ports:
+  #     - 80:8000
+  #   depends_on:
+  #     - api
+
+  #   networks:
+  #     rest_sample_network:
+  #       ipv4_address: 172.20.0.102
 
 networks:
   rest_sample_network:
