@@ -35,3 +35,9 @@ response
           ]
        }
     }
+
+## Run containers
+    git clone https://github.com/dmalisani/ephemeris.git
+    cd ephemeris
+    docker-compose up --build
+    localhost:8000/efemerides
